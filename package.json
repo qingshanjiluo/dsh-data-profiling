@@ -1,0 +1,22 @@
+{
+  "name": "dsh-data-profiling",
+  "version": "1.0.0",
+  "description": "数据画像插件 — 分析 CSV/JSON 数据质量、统计摘要、缺失值与异常值检测",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "files": ["dist"],
+  "scripts": {
+    "build": "tsc",
+    "dev": "tsc --watch",
+    "prepublishOnly": "npm run build"
+  },
+  "keywords": ["dsh", "plugin", "data-profiling", "csv", "json", "data-quality"],
+  "author": "qingshanjiluo",
+  "license": "MIT",
+  "dependencies": {
+    "zod": "^3.22.0"
+  },
+  "devDependencies": {
+    "typescript": "^5.3.0"
+  }
+}
