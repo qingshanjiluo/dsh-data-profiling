@@ -1,22 +1,50 @@
 {
-  "name": "dsh-data-profiling",
-  "version": "1.0.0",
-  "description": "数据画像插件 — 分析 CSV/JSON 数据质量、统计摘要、缺失值与异常值检测",
-  "main": "dist/index.js",
-  "types": "dist/index.d.ts",
-  "files": ["dist"],
-  "scripts": {
-    "build": "tsc",
-    "dev": "tsc --watch",
-    "prepublishOnly": "npm run build"
+  "name": "@qingshanjiluo/dsh-data-profiling",
+  "version": "0.1.0",
+  "description": "DeepSeek Harness plugin: deterministic CSV/JSON column profiling and markdown data-quality reports.",
+  "type": "module",
+  "main": "./lib/index.js",
+  "types": "./lib/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./lib/index.d.ts",
+      "default": "./lib/index.js"
+    },
+    "./package.json": "./package.json"
   },
-  "keywords": ["dsh", "plugin", "data-profiling", "csv", "json", "data-quality"],
+  "files": [
+    "lib/**/*.js",
+    "lib/**/*.d.ts",
+    "cordis.patch.yml",
+    "README.md"
+  ],
+  "scripts": {
+    "build": "tsc -p tsconfig.json && tsdown",
+    "typecheck": "tsc --noEmit",
+    "test": "vitest run"
+  },
+  "keywords": ["deepseek-harness", "dsh-plugin", "cordis", "data-profiling", "csv", "json", "data-quality"],
   "author": "qingshanjiluo",
   "license": "MIT",
-  "dependencies": {
-    "zod": "^3.22.0"
+  "engines": {
+    "node": "^22.19 || >=24"
+  },
+  "peerDependencies": {
+    "@deepseek-ai/cordis": "^4.0.2",
+    "@deepseek-ai/dsh-tools": "^0.1.0-rc.6"
   },
   "devDependencies": {
-    "typescript": "^5.3.0"
+    "@deepseek-ai/cordis": "^4.0.2",
+    "@deepseek-ai/dsh-tools": "^0.1.0-rc.6",
+    "@deepseek-ai/schemastery": "^3.18.1",
+    "@types/node": "^22.10.0",
+    "tsdown": "^0.11.0",
+    "typescript": "^5.9.0",
+    "vitest": "^3.2.4"
+  },
+  "dsh": {
+    "bundle": {
+      "patch": "./cordis.patch.yml"
+    }
   }
 }

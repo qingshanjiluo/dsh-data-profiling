@@ -1,0 +1,10 @@
+# dsh-data-profiling bundle layer: inserts the host tool plugin into a profile's
+# layer stack. Install with:
+#   npx -y @deepseek-ai/dsh plugin --profile web add @qingshanjiluo/dsh-data-profiling
+- insert:
+    - id: data-profiling
+      name: '@qingshanjiluo/dsh-data-profiling'
+      config:
+        sampleSize: 3
+        maxColumns: 50
+        nullWarnPct: 20
